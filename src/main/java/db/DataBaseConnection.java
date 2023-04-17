@@ -14,11 +14,11 @@ public class DataBaseConnection {
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/homeworksupermarket", "root", "0315");
 
                 Statement stmt = con.createStatement();
-                ResultSet purchase = stmt.executeQuery("SELECT * FROM products");
+                ResultSet rs = stmt.executeQuery("SELECT * FROM products");
 
-                while (purchase.next()) {
+                while (rs.next()) {
                     System.out.printf("productID %d productName:  %s productPrice: %s productWeight: %s productQuantity %s \n",
-                            purchase.getInt(1), purchase.getString(2), purchase.getDouble(3), purchase.getDouble(4), purchase.getInt(5));
+                            rs.getInt(1), rs.getString(2), rs.getDouble(3), rs.getDouble(4), rs.getInt(5));
                 }
                 con.close();
 

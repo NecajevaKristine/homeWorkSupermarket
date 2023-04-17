@@ -1,20 +1,25 @@
+import java.util.UUID;
+
 public class Users {
     private static String userName;
     private String userEmail;
     private String userPassword;
     private double balance;
+    private UUID id;
 
-    public Users(String userName, String userEmail, String userPassword, double balance) {
+    public Users(String userName, String userEmail, String userPassword, double balance,UUID id) {
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
         this.balance = balance;
+        this.id = id;
 
     }
 
     public Users(String userName, double balance) {
         this.userName = userName;
         this.balance = balance;
+        this.id = UUID.randomUUID();
     }
 
     public Users() {
@@ -54,6 +59,15 @@ public class Users {
         this.balance = balance;
     }
 
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+
     public void addFunds (double amount){
         if (balance>=amount){
             balance-=amount;
@@ -67,17 +81,17 @@ public class Users {
     @Override
     public String toString() {
         return "Users{" +
-                "userName='" + userName + '\'' +
-                ", userEmail='" + userEmail + '\'' +
+                "userEmail='" + userEmail + '\'' +
                 ", userPassword='" + userPassword + '\'' +
                 ", balance=" + balance +
+                ", id=" + id +
                 '}';
     }
 }
 
 class SalesRep extends Users{
-    public SalesRep(String userName, String userEmail, String userPassword, double balance) {
-        super(userName, userEmail, userPassword, balance);
+    public SalesRep(String userName, String userEmail, String userPassword, double balance, UUID id) {
+        super(userName, userEmail, userPassword, balance, id);
     }
 
     public SalesRep() {
@@ -86,8 +100,8 @@ class SalesRep extends Users{
 }
 
 class Owner extends Users {
-    public Owner(String userName, String userEmail, String userPassword, double balance) {
-        super(userName, userEmail, userPassword, balance);
+    public Owner(String userName, String userEmail, String userPassword, double balance, UUID id) {
+        super(userName, userEmail, userPassword, balance, id);
     }
 
     public Owner() {
@@ -95,8 +109,8 @@ class Owner extends Users {
     }
 }
 class Buyer extends Users {
-    public Buyer(String userName, String userEmail, String userPassword, double balance) {
-        super(userName, userEmail, userPassword, balance);
+    public Buyer(String userName, String userEmail, String userPassword, double balance, UUID id) {
+        super(userName, userEmail, userPassword, balance, id);
     }
 
     public Buyer() {
