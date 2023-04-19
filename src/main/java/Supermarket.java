@@ -1,7 +1,9 @@
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Supermarket {
+    private Integer id;
     public String users;
     public String products;
 
@@ -11,11 +13,12 @@ public class Supermarket {
     private ArrayList<Transactions> transaction;
 
     public Supermarket() {
-        // Initialize empty lists
         this.product = new ArrayList<Products>();
         this.user = new ArrayList<Users>();
         this.transaction = new ArrayList<Transactions>();
     }
+
+
 
     public void addProduct(Products product) {
         // Add a new product to the list of products
@@ -51,7 +54,7 @@ public class Supermarket {
     public void showMenu() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            // Show menu options based on user type
+            // Show menu options
             System.out.println("Welcome to the Supermarket!");
             System.out.println("1. Register as a new user");
             System.out.println("2. Buy a product");

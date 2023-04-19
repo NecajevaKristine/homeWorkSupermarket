@@ -1,4 +1,7 @@
+import java.sql.Timestamp;
+
 public class Products {
+    private Integer id;
     private String productName;
     private double productPrice;
     private double productWeight;
@@ -6,7 +9,23 @@ public class Products {
     private double cost;
     private int sold;
 
+    private Timestamp createdAt;
+    private Timestamp updateAt;
+
+
     public Products(String productName, double productPrice, double productWeight) {
+        this.id = id;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productWeight = productWeight;
+        this.productQuantity = productQuantity;
+        this.cost = cost;
+        this.sold = sold;
+        this.createdAt = createdAt;
+        this.updateAt = updateAt;
+    }
+
+    public Products(String productName, double productPrice, double productWeight, int productQuantity) {
         this.productName = productName;
         this.productPrice = productPrice;
         this.productWeight = productWeight;
@@ -46,5 +65,13 @@ public class Products {
 
     public String getProductName() {
         return productName;
+    }
+
+    public double getWeight() {
+        return productWeight;
+    }
+
+    public int getQuantity() {
+        return productQuantity;
     }
 }
